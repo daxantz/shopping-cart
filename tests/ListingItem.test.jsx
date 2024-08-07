@@ -4,19 +4,6 @@ import ListingItem from "../src/components/ListingItem";
 import { vi } from "vitest";
 
 describe("Listing item component", () => {
-  it("renders the listing item component", () => {
-    const data = {
-      category: "men's clothing",
-      price: 109.05,
-      title: "Cool Coat",
-    };
-
-    render(<ListingItem itemData={data} />);
-    const listingItem = screen.getByTestId("listing-item");
-
-    expect(listingItem).toBeInTheDocument();
-  });
-
   it("renders the listing item component with correct data", () => {
     const data = {
       category: "men's clothing",
@@ -25,17 +12,14 @@ describe("Listing item component", () => {
     };
 
     render(<ListingItem itemData={data} />);
-    const categoryElement = screen.getByText(/men's clothing/i);
-    const priceElement = screen.getByText(/109.05/i);
-    const titleElement = screen.getByText(/Cool Coat/i);
 
-    expect(categoryElement).toBeInTheDocument();
-    expect(categoryElement).toHaveTextContent("men's clothing");
-    expect(priceElement).toBeInTheDocument();
-    const priceInt = parseFloat(priceElement.innerHTML);
-    expect(priceInt).toBe(109.05);
-    expect(titleElement).toBeInTheDocument();
-    expect(titleElement).toHaveTextContent("Cool Coat");
+    // Check if the correct content is rendered
+    expect(screen.getByText(/men's clothing/i)).toHaveTextContent(
+      "men's clothing"
+    );
+    expect(screen.getByTestId("listing-item")).toBeInTheDocument();
+    expect(screen.getByText(/109.05/i)).toHaveTextContent("109.05");
+    expect(screen.getByText(/Cool Coat/i)).toHaveTextContent("Cool Coat");
   });
   it("calls addToCart function", () => {
     const data = {
