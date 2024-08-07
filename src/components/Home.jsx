@@ -1,37 +1,29 @@
 import ListingItem from "./ListingItem";
-
+import Navbar from "./Navbar";
 export default function Home({ data }) {
   return (
-    <main>
-      <nav>
-        <div className="navstart">
-          <span>Shop</span>
-          <span>Home</span>
-          <span>Store</span>
+    <>
+      <Navbar itemCount={4} />
+      <main className="container mx-auto px-20 text-2xl ">
+        <div className="flex flex-col items-center gap-10 my-10">
+          <h1 className="text-4xl font-medium">Welcome to my shop</h1>
+          <p className="w-3/4 text-center">
+            Discover a wide range of clothing for Men and Women
+          </p>
+          <button className="bg-blue-500 px-5 py-3 rounded-full text-2xl text-white">
+            Shop Now
+          </button>
         </div>
-        <div className="navend">
-          <input type="text" placeholder="Search" />
-          <img src="" alt="shopping cart icon" />
+        <div>
+          <h2 className="text-center text-3xl mb-10">Featured Items</h2>
+          <div className="flex justify-around flex-wrap">
+            <ListingItem />
+            <ListingItem />
+            <ListingItem />
+            <ListingItem />
+          </div>
         </div>
-      </nav>
-
-      <div>
-        <h1>Welcome to my shop</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-          asperiores eaque dolorum ullam! Dicta beatae non dolores dolor animi!
-          Inventore incidunt optio tempora hic! Sit eos nisi consequuntur
-          officiis ullam.
-        </p>
-        <button>Shop Now</button>
-      </div>
-      {/* featured items */}
-      <div className="flex">
-        <ListingItem />
-        <ListingItem />
-        <ListingItem />
-        <ListingItem />
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
