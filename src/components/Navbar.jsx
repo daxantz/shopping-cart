@@ -1,4 +1,5 @@
 import ShoppingCart from "./ShoppingCart";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -11,10 +12,10 @@ export default function Navbar() {
         </div>
         <div className="flex gap-5 items-end">
           <span className="text-xl">
-            <a href="">Home</a>
+            <Link to="/">Home</Link>
           </span>
           <span className="text-xl">
-            <a href="">Store</a>
+            <Link to="shop">Shop</Link>
           </span>
         </div>
       </div>
@@ -24,9 +25,10 @@ export default function Navbar() {
           type="text"
           placeholder="Search"
         />
-        <a href="" className="flex items-center">
+
+        <Link to="cart">
           <ShoppingCart itemCount={10} />
-        </a>
+        </Link>
       </div>
     </nav>
   );
