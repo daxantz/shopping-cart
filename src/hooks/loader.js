@@ -5,7 +5,10 @@ async function getData() {
       throw new Error(`HTTP error: Status ${response.status}`);
     }
     const data = await response.json();
-    return data;
+    const dataWithQuantity = data.map((item) => {
+      return { ...item, quantity: 0 };
+    });
+    return dataWithQuantity;
   } catch (err) {
     console.log(err);
   }
