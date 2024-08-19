@@ -1,15 +1,16 @@
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
-
-export default function ShoppingCart({ itemCount, onClick }) {
+import { useCartContext } from "../hooks/Cartprovider";
+export default function ShoppingCart({ onClick }) {
+  const { cart, setCart } = useCartContext();
   return (
     <div data-testid="shopping-cart" onClick={onClick} role="button">
       <ShoppingCartIcon className="w-8" />
-      {itemCount >= 1 && (
+      {cart.length >= 1 && (
         <span
           data-testid="item-count"
-          className="absolute top-3 right-4 bg-red-600 w-1 h-1 inline-block rounded-full p-4 text-white text-2xl flex items-center justify-center"
+          className="absolute top-3 right-7 bg-red-600 w-6 h-6  rounded-full  text-white text-base text-center"
         >
-          {itemCount}
+          {cart.length}
         </span>
       )}
     </div>
