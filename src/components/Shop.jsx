@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Link } from "react-router-dom";
 import ListingItem from "./ListingItem";
 
 export default function Shop() {
@@ -8,7 +8,9 @@ export default function Shop() {
       <p>All items({itemData.items.length})</p>
       <div className="grid grid-rows-5 grid-cols-4 gap-5 ">
         {itemData.items.map((item) => (
-          <ListingItem key={item.id} itemData={item} />
+          <Link key={item.id} to={`/shop/item/${item.id}`}>
+            <ListingItem itemData={item} />
+          </Link>
         ))}
       </div>
     </div>
