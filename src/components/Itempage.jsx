@@ -37,18 +37,23 @@ export default function Listingpage() {
   }
   if (!selectedItem) return <p>loading...</p>;
   return (
-    <div>
-      <div className="max-w-28">
+    <div className="flex justify-around p-10">
+      <div className="w-1/4">
         <img src={selectedItem.image} alt="Item image" />
       </div>
-      <div>
-        <h2>{selectedItem.title}</h2>
-        <p>{selectedItem.category}</p>
-        <p>{selectedItem.price}</p>
+      <div className="w-2/4 flex flex-col gap-5 justify-center">
+        <div>
+          <h2 className="font-bold text-2xl">{selectedItem.title}</h2>
+          <p className="text-stone-400 text-lg">{selectedItem.category}</p>
+          <p>$ {selectedItem.price}</p>
+        </div>
 
         <div>
           <p>{selectedItem.description}</p>
-          <button onClick={() => addToCart(id, selectedItem)}>
+          <button
+            className="bg-blue-500 py-3 px-5 rounded-full text-white mt-4"
+            onClick={() => addToCart(id, selectedItem)}
+          >
             Add to Cart
           </button>
         </div>
